@@ -46,29 +46,37 @@ $(document).ready(function () {
         $(".clicked-text").on("click", function () {
             var yourAnswer = $(this).attr("your-answer");
             if (yourAnswer === questionAnswers[index].rightAnswer) {
-                $("#showPossibleAnswers").empty();
-                $("#showQuestion").append("<br>Yes, " + yourAnswer + " is correct !");
-                var shows = $("<iframe>");
                 correctAnswers++;
-                shows.attr("src", questionAnswers[index].animate);
-                shows.attr("width", "380");
-                shows.attr("height", "220");
-                $("#showPossibleAnswers").append(shows);
+                handleCorrect("<br>Yes, " + yourAnswer + " is correct !");
             }
             else {
                 inCorrectAnswers++;
-                $("#showPossibleAnswers").empty();
-                $("#showQuestion").append("<br>Incorrect, the correct answer is   " + questionAnswers[index].rightAnswer);
-                var ding = $("<iframe>");
-                ding.attr("src", unCorrectImg);
-                ding.attr("width", "380");
-                ding.attr("height", "220");
-                $("#showPossibleAnswers").append(ding);
+                handleIncorrect("<br>Incorrect, ");
             }
 
-            setTimeout(markedAnswer, 3000);
+            setTimeout(markedAnswer, 5000);
 
         });
+    }
+
+    function handleCorrect(showStr) {
+        $("#showPossibleAnswers").empty();
+        $("#showQuestion").append(showStr);
+        var shows = $("<iframe>");
+        shows.attr("src", questionAnswers[index].animate);
+        shows.attr("width", "380");
+        shows.attr("height", "220");
+        $("#showPossibleAnswers").append(shows);
+    }
+
+    function handleIncorrect(showStr) {
+        $("#showPossibleAnswers").empty();
+        $("#showQuestion").append(showStr + " the correct answer is   " + questionAnswers[index].rightAnswer);
+        var ding = $("<iframe>");
+        ding.attr("src", unCorrectImg);
+        ding.attr("width", "380");
+        ding.attr("height", "220");
+        $("#showPossibleAnswers").append(ding);
     }
 
     function markedAnswer() {
@@ -105,7 +113,9 @@ $(document).ready(function () {
         }
         if (timer <= 0) {
             unAnswers++;
-            moveToNext();
+            handleIncorrect("<br>Timed out, ");
+            clearInterval(intervalId);
+            setTimeout(moveToNext, 5000);
             return;
         }
     }
@@ -133,7 +143,6 @@ $(document).ready(function () {
         btn.on("click", function () {
             resetGame();
         })
-
     }
 
     startGame("Start");
