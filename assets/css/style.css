@@ -1,0 +1,44 @@
+body {
+    background: url("../images/concrete_seamless.png");
+    border: 3px solid grey;
+    max-width: 960px;
+    width: 100%;
+    min-height: 480px;
+    max-height: 680px;
+    height: 100%;
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
+    font-family: "Stylish";
+}
+
+#game-title {
+    background-color: orange;
+    height: 58px;
+    text-align: center;
+    color: rgb(221, 221, 231);
+    padding: 10px;
+    margin: 0;
+    font-size: 28px;
+}
+
+#displayBoard {
+    font-size: 32px;
+    line-height: 45px;
+}
+
+#showQuestion {
+    font-size: 32px;
+}
+
+#showPossibleAnswers {
+    font-size: 22px;
+    line-height: 28px;
+}
+
+button {
+    margin-top: 80px;
+    background: orange;
+    padding: 6px 60px;
+    color: rgb(221, 221, 231);
+}

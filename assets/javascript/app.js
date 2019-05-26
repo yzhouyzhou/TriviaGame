@@ -36,6 +36,8 @@ $(document).ready(function () {
         for (var i = 0; i < questionAnswers[index].answers.length; i++) {
             var answerSelected = $("<div>");
             answerSelected.addClass("clicked-text");
+            answerSelected.attr("onmouseover", "style.color='gray'");
+            answerSelected.attr("onmouseout", "style.color='black'");
             answerSelected.attr("your-answer", questionAnswers[index].answers[i]);
             answerSelected.html(questionAnswers[index].answers[i] + "<br><br>");
             $("#showPossibleAnswers").append(answerSelected);
@@ -49,18 +51,18 @@ $(document).ready(function () {
                 var shows = $("<iframe>");
                 correctAnswers++;
                 shows.attr("src", questionAnswers[index].animate);
-                shows.attr("width", "480");
-                shows.attr("height", "280");
+                shows.attr("width", "380");
+                shows.attr("height", "220");
                 $("#showPossibleAnswers").append(shows);
             }
             else {
                 inCorrectAnswers++;
                 $("#showPossibleAnswers").empty();
-                $("#showQuestion").append("<br>No, the correct answer is   " + questionAnswers[index].rightAnswer);
+                $("#showQuestion").append("<br>Incorrect, the correct answer is   " + questionAnswers[index].rightAnswer);
                 var ding = $("<iframe>");
                 ding.attr("src", unCorrectImg);
                 ding.attr("width", "380");
-                ding.attr("height", "280");
+                ding.attr("height", "220");
                 $("#showPossibleAnswers").append(ding);
             }
 
@@ -76,14 +78,14 @@ $(document).ready(function () {
     function moveToNext() {
         index++;
         clearInterval(intervalId);
-        $("#display").empty();
+        $("#displayBoard").empty();
         $("#showQuestion").empty();
         $("#showPossibleAnswers").empty();
         if (index === totalOfQuestions) {
-            $("#display").html("Time Remaining: " + timer);
-            $("#display").append("<br>Correct Answers:  " + correctAnswers);
-            $("#display").append("<br>Incorrect Answers:  " + inCorrectAnswers);
-            $("#display").append("<br>UnAnswered Questions:  " + unAnswers + "<br>");
+            $("#displayBoard").html("Time Remaining: " + timer);
+            $("#displayBoard").append("<br>Correct Answers:  " + correctAnswers);
+            $("#displayBoard").append("<br>Incorrect Answers:  " + inCorrectAnswers);
+            $("#displayBoard").append("<br>UnAnswered Questions:  " + unAnswers + "<br>");
             startGame("Start Over");
         }
         else {
@@ -94,7 +96,7 @@ $(document).ready(function () {
 
     function countdown() {
         timer--;
-        $("#display").html("Time Remaining: " + timer);
+        $("#displayBoard").html("Time Remaining: " + timer);
 
         if (isAnswered) {
             isAnswered = false;
@@ -110,12 +112,12 @@ $(document).ready(function () {
 
     function runTimer() {
         timer = 30;
-        $("#display").html("Time Remaining: " + timer);
+        $("#displayBoard").html("Time Remaining: " + timer);
         intervalId = setInterval(countdown, 1000);
     }
 
     function resetGame() {
-        $("#display").empty();
+        $("#displayBoard").empty();
         correctAnswers = 0;
         inCorrectAnswers = 0;
         unAnswers = 0;
@@ -123,11 +125,11 @@ $(document).ready(function () {
         runTimer();
         showTrivia();
     }
-    
+
     function startGame(buttonName) {
         var btn = $("<button>");
         btn.html(buttonName);
-        $("#display").append(btn);
+        $("#displayBoard").append(btn);
         btn.on("click", function () {
             resetGame();
         })
