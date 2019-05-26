@@ -1,33 +1,44 @@
 var questionAnswers = [
     {
-        question: "who won the world series in 2016?",
+        question: "1- Who won the world series in 2016?",
         answers: ["Blackhawks", "Cubs", "Bears", "White Soxs"],
         rightAnswer: "Cubs",
         animate: "./assets/images/giphy_cubs.mp4"
     },
     {
-        question: "Second who won the world series in 2016?",
-        answers: ["Blackhawks", "Cubs", "Bears", "White Soxs"],
-        rightAnswer: "Cubs",
-        animate: "./assets/images/giphy_cubs.mp4"
+        question: "2- Name the world's largest ocean.",
+        answers: ["Altlantic", "Indian", "Pacific", "Arctic"],
+        rightAnswer: "Pacific",
+        animate: "./assets/images/giphy_pacific.mp4"
     },
     {
-        question: "Third who won the world series in 2016?",
-        answers: ["Blackhawks", "Cubs", "Bears", "White Soxs"],
-        rightAnswer: "Cubs",
-        animate: "./assets/images/giphy_cubs.mp4"
+        question: "3- Name the world's longest river.",
+        answers: ["Amazon", "Yangtze", "Mississippi", "Yenisei"],
+        rightAnswer: "Amazon",
+        animate: "./assets/images/giphy_amazon.mp4"
+    },
+    {
+        question: "4- Name the world's largest city.",
+        answers: ["Tokyo", "Beijing", "London", "New York City"],
+        rightAnswer: "New York City",
+        animate: "./assets/images/giphy_newyork.mp4"
+    },
+    {
+        question: "5- Who won the World Cup in 2018?",
+        answers: ["America", "France", "Italy", "Germany"],
+        rightAnswer: "France",
+        animate: "./assets/images/giphy_soccer.mp4"
     }
 
 ]
 
-var unCorrectImg = "./assets/images/giphy_wrong_answer.mp4";
+var index = 0;
 var correctAnswers = 0;
 var inCorrectAnswers = 0;
 var unAnswers = 0;
-var index = 0;
-var totalOfQuestions = 3;
 var timer = 30;
 var intervalId;
+var unCorrectImg = "./assets/images/giphy_wrong_answer.mp4";
 var isAnswered = false;
 
 $(document).ready(function () {
@@ -47,7 +58,7 @@ $(document).ready(function () {
             var yourAnswer = $(this).attr("your-answer");
             if (yourAnswer === questionAnswers[index].rightAnswer) {
                 correctAnswers++;
-                handleCorrect("<br>Yes, " + yourAnswer + " is correct !");
+                handleCorrect("<br>Yes, " + yourAnswer + " is correct answer !");
             }
             else {
                 inCorrectAnswers++;
@@ -85,7 +96,8 @@ $(document).ready(function () {
         $("#displayBoard").empty();
         $("#showQuestion").empty();
         $("#showPossibleAnswers").empty();
-        if (index === totalOfQuestions) {
+
+        if (index === questionAnswers.length) {
             $("#displayBoard").html("Time Remaining: " + timer);
             $("#displayBoard").append("<br>Correct Answers:  " + correctAnswers);
             $("#displayBoard").append("<br>Incorrect Answers:  " + inCorrectAnswers);
