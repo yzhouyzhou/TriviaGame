@@ -42,3 +42,15 @@ button {
     padding: 6px 60px;
     color: rgb(221, 221, 231);
 }
+
+iframe {
+    width: 360px;
+    height: 220px;
+}
+
+@media screen and (max-width: 480px) {
+    iframe {
+        width: 220px;
+        height: 180px;
+    }
+}

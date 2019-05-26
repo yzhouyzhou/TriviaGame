@@ -64,8 +64,6 @@ $(document).ready(function () {
         $("#showQuestion").append(showStr);
         var shows = $("<iframe>");
         shows.attr("src", questionAnswers[index].animate);
-        shows.attr("width", "320");
-        shows.attr("height", "220");
         $("#showPossibleAnswers").append(shows);
     }
 
@@ -74,8 +72,6 @@ $(document).ready(function () {
         $("#showQuestion").append(showStr + " the correct answer is   " + questionAnswers[index].rightAnswer);
         var ding = $("<iframe>");
         ding.attr("src", unCorrectImg);
-        ding.attr("width", "320");
-        ding.attr("height", "220");
         $("#showPossibleAnswers").append(ding);
     }
 
