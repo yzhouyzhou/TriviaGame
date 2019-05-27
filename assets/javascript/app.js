@@ -48,7 +48,7 @@ $(document).ready(function () {
             var answerSelected = $("<div>");
             answerSelected.addClass("clicked-text");
             answerSelected.attr("onmouseover", "style.color='gray'");
-            answerSelected.attr("onmouseout", "style.color='black'");
+            answerSelected.attr("onmouseout", "style.color='darkgreen'");
             answerSelected.attr("your-answer", questionAnswers[index].answers[i]);
             answerSelected.html(questionAnswers[index].answers[i] + "<br><br>");
             $("#showPossibleAnswers").append(answerSelected);

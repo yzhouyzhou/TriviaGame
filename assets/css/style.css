@@ -1,24 +1,26 @@
 body {
-    background: url("../images/concrete_seamless.png");
-    border: 3px solid grey;
-    max-width: 960px;
-    width: 100%;
-    min-height: 520px;
-    max-height: 680px;
-    height: 100%;
-    padding: 10px;
+    background: url("../images/background_pexels-photo-235985.jpeg");
     margin: 20px;
     text-align: center;
     font-family: "Stylish";
+    color: darkgreen;
+}
+
+.container {
+    padding: 20px;
+    background: yellowgreen;
+    border: 3px solid orange;
+    max-width: 960px;
+    width: 100%;
+    min-height: calc(100vh - 35px);
 }
 
 #game-title {
     background-color: orange;
+    padding: 10px;
     height: 58px;
     text-align: center;
-    color: rgb(221, 221, 231);
-    padding: 10px;
-    margin: 0;
+    color: green;
     font-size: 28px;
 }
 
@@ -39,8 +41,9 @@ body {
 button {
     margin-top: 80px;
     background: orange;
+    border: 3px solid green;
     padding: 6px 60px;
-    color: rgb(221, 221, 231);
+    color: green;
 }
 
 iframe {
