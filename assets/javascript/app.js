@@ -73,7 +73,7 @@ $(document).ready(function () {
     function handleCorrect(showStr) {
         $("#showPossibleAnswers").empty();
         $("#showQuestion").append(showStr);
-        var shows = $("<img>");
+        var shows = $("<iframe>");
         shows.attr("src", questionAnswers[index].animate);
         $("#showPossibleAnswers").append(shows);
     }
@@ -81,7 +81,7 @@ $(document).ready(function () {
     function handleIncorrect(showStr) {
         $("#showPossibleAnswers").empty();
         $("#showQuestion").append(showStr + " the correct answer is   " + questionAnswers[index].rightAnswer);
-        var ding = $("<img>");
+        var ding = $("<iframe>");
         ding.attr("src", unCorrectImg);
         $("#showPossibleAnswers").append(ding);
     }

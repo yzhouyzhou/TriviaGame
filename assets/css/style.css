@@ -45,13 +45,13 @@ button {
     color: green;
 }
 
-img {
-    width: 360px;
+iframe {
+    width: 480px;
     height: 220px;
 }
 
 @media screen and (max-width: 480px) {
-    img {
+    iframe {
         width: 220px;
         height: 180px;
     }
