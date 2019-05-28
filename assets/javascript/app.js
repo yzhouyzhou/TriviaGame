@@ -3,31 +3,31 @@ var questionAnswers = [
         question: "1- Who won the world series in 2016?",
         answers: ["Blackhawks", "Cubs", "Bears", "White Soxs"],
         rightAnswer: "Cubs",
-        animate: "./assets/images/giphy_cubs.mp4"
+        animate: "./assets/images/giphy-cubs-gif.webp"
     },
     {
         question: "2- Name the world's largest ocean.",
         answers: ["Altlantic", "Indian", "Pacific", "Arctic"],
         rightAnswer: "Pacific",
-        animate: "./assets/images/giphy_pacific.mp4"
+        animate: "./assets/images/giphy-pacific-gif.webp"
     },
     {
         question: "3- Name the world's longest river.",
         answers: ["Amazon", "Yangtze", "Mississippi", "Yenisei"],
         rightAnswer: "Amazon",
-        animate: "./assets/images/giphy_amazon.mp4"
+        animate: "./assets/images/giphy-river-gif.webp"
     },
     {
         question: "4- Name the world's largest city.",
         answers: ["Tokyo", "Beijing", "London", "New York City"],
         rightAnswer: "New York City",
-        animate: "./assets/images/giphy_newyork.mp4"
+        animate: "./assets/images/giphy-newyork-gif.webp"
     },
     {
         question: "5- Who won the World Cup in 2018?",
         answers: ["America", "France", "Italy", "Germany"],
         rightAnswer: "France",
-        animate: "./assets/images/giphy_soccer.mp4"
+        animate: "./assets/images/giphy-soccer-gif.webp"
     }
 
 ]
@@ -38,7 +38,7 @@ var inCorrectAnswers = 0;
 var unAnswers = 0;
 var timer = 30;
 var intervalId;
-var unCorrectImg = "./assets/images/giphy_wrong_answer.mp4";
+var unCorrectImg = "./assets/images/giphy-wrong-gif.webp";
 var isAnswered = false;
 
 $(document).ready(function () {
@@ -73,7 +73,7 @@ $(document).ready(function () {
     function handleCorrect(showStr) {
         $("#showPossibleAnswers").empty();
         $("#showQuestion").append(showStr);
-        var shows = $("<iframe>");
+        var shows = $("<img>");
         shows.attr("src", questionAnswers[index].animate);
         $("#showPossibleAnswers").append(shows);
     }
@@ -81,7 +81,7 @@ $(document).ready(function () {
     function handleIncorrect(showStr) {
         $("#showPossibleAnswers").empty();
         $("#showQuestion").append(showStr + " the correct answer is   " + questionAnswers[index].rightAnswer);
-        var ding = $("<iframe>");
+        var ding = $("<img>");
         ding.attr("src", unCorrectImg);
         $("#showPossibleAnswers").append(ding);
     }
