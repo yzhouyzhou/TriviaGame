@@ -20,7 +20,6 @@ body {
     padding: 10px;
     height: 58px;
     text-align: center;
-    color: green;
     font-size: 28px;
 }
 
@@ -41,7 +40,7 @@ body {
 button {
     margin-top: 80px;
     background: orange;
-    border: 3px solid green;
+    border: 1px solid darkgreen;
     padding: 6px 60px;
     color: green;
 }
